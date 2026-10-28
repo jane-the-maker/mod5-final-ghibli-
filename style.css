@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Gaegu&display=swap');
 
-/* background-color: #D6FCFF */
+/* background-color: #D6FCFF; */
 
 * {
   padding: 0;
@@ -20,6 +20,20 @@ ul {
 nav {
   height: 100%;
 }
+
+.container {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  max-width: 1200px;
+}
+
+p {
+  font-size: 18px;
+  word-break: break-word;
+}
+
+
 /* nav  */
 
 
@@ -27,6 +41,7 @@ nav {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  
 }
 .nav__container {
   display: flex;
@@ -35,7 +50,7 @@ nav {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  background-color: pink;
+  background-color: #D6FCFF;
 } 
 
 .nav__banner {
@@ -46,6 +61,7 @@ nav {
   position: absolute;
   opacity: 70%;
   z-index: 1;
+  
 }
 
 .nav__content {
@@ -99,6 +115,7 @@ nav {
 .film__search--bar {
   width: 100%;
   border-radius: 16px;
+  background-color: #D6FCFF;
 }
 
 .search__wrapper {
@@ -116,3 +133,96 @@ nav {
   background-color: #D6FCFF;
 }
 
+.film {
+  width: 33%;
+}
+
+.film-card {
+  direction: flex;
+  flex-direction: column;
+  border: 4px dotted;
+  margin: 10px;
+  border-radius: 16px;
+  width: 300px;
+  height: 400px;;
+  flex-wrap: wrap;
+}
+
+
+.film-list {
+  width: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.film-card__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 16px;
+
+}
+
+.film__card {
+
+}
+
+.film__info {
+  position: absolute;
+  top: 50%;
+  left: 90px;
+  max-width: 550px;
+  z-index: 3;
+  opacity: 0;
+  transition: transform 450ms, opacity 300ms;
+}
+
+.film__info:hover {
+  opacity: 1;
+  transform: translateY(-50%);
+}
+
+.film__info:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #1c1d25;
+  opacity: 0;
+  transition: opacity 450ms ease;
+  z-index: 2;
+}
+
+
+
+.film__title--wrapper {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 56px;
+  line-height: 1;
+}
+.film__img--wrapper {
+  max-width: 240px;
+  max-height: 240px;
+  direction: flex;
+}
+
+.film__img {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+}
+
+
+/* RESPONSIVENESS */
+
+
+@media (max-width: 768px) {
+
+}
