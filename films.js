@@ -60,16 +60,16 @@ function sortFilms() {
   const films = [...allFilms];
 
   if (filter === 'DATE_ASCENDING') {
-    films.sort((b, a) => (b.release_date - a.release_date));
+    films.sort((a, b) => (a.release_date - b.release_date));
   }
   else if (filter === 'DATE_DESCENDING') {
-    films.sort((a, b) => (a.release_date - b.release_date))
+    films.sort((b, a) => (b.release_date - a.release_date));
   }
   else if (filter === 'RATING_ASCENDING') {
-    films.sort((b, a) => (b.rt_score - a.rt_score))
+    films.sort((a, b) => (a.rt_score - b.rt_score));
   }
   else if (filter === 'RATING_DESCENDING') {
-    films.sort ((a, b) => (a.rt_score - b.rt_score))
+    films.sort ((b, a) => (b.rt_score - a.rt_score));
   }
 
   filmListEl.innerHTML = films
