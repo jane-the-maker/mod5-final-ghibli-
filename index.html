@@ -29,7 +29,7 @@
         <div class="search__wrapper">
           <h1 class="search__title">Check out our films!</h1>
           <div class="film__search--container">
-            <input type="text" class="film__search--bar" placeholder=" What are you looking for?" onchange="onSearchChange(event)">
+            <input id="search-form" type="text" class="film__search--bar" placeholder="  What are you looking for?" onchange="onSearchChange(event)">
           </div>
         </div>
       </div> 
@@ -37,23 +37,35 @@
   </section>
   
   <section id="films">
-      <div class="row">
-        <div class="film-list">
-          <div class="film">
-            <div class="film-card">
-              <div class="film-card__container">
-                <img class="film__img" src="" alt="">
-                <div class="film-info">
-                  <p><b>Director:</b><br></p>
-                  <p><b>Released:</b><br></p>
-                  <p><b>Runtime:</b><br></p>
-                  <p><b>Rotten Tomatoes :</b><br></p>
-                </div>
-              <p><b>Synopsis:</b><p>
+      <div class="row films__row">
+        <div class="container films__container">
+          <div class="films__header">         
+            <select id="filter" class="sort-filter" onchange="sortFilms()">
+              <option value="" disabled selected>Sort Films</option>
+              <option value="DATE_ASCENDING">Oldest to Newest</option>
+              <option value="DATE_DESCENDING">Newest to Oldest</option>
+              <option value="RATING_ASCENDING">Best to Worst</option>
+              <option value="RATING_DESCENDING">Worst to Best</option>
+            </select>
+          </div>
+          <div class="films__list">
+            <div class="film">
+              <div class="film__card">
+                  <figure class="film__img--wrapper">
+                    <img class="film__img" src="" alt="">
+                  </figure>  
+                  <div class="film__card--bg"></div>
+                  <div class="film__info">
+                    <p>Director:<br></p>
+                    <p>Released:<br></p>
+                    <p>Runtime:<br></p>
+                    <p>Rotten Tomatoes:</p><br>
+                    <!-- <p>Synopsis: ${film.description}</p> -->
+                  </div>
               </div>
             </div>
           </div>
-        </div>
+        </div>  
       </div>
   </section>
   
