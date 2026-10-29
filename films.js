@@ -2,13 +2,14 @@
 
 
 // const searchForm = document.querySelector('#search-form')
-
+let allFilms = []
 const filmListEl = document.querySelector(".films__list");
 
 async function renderFilms(filter) {
   const film = await fetch("https://ghibliapi.dev/films")
   const filmData = await film.json();
- 
+  let allFilms = filmData;
+
   console.log(films)
 
   filmListEl.innerHTML = filmData.map((film) => filmHTML(film));
@@ -56,8 +57,8 @@ function showSearchResult(title) {
 }
 
 function sortFilms() {
-  const films = document.querySelector(".films__list")
-
+  const filter = document.querySelector("#filter").value
+  const films = [...allFilms];
 
   if (filter === 'DATE_ASCENDING') {
     films.sort((a, b) => (a.release_date - b.release_date));
