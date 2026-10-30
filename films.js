@@ -14,7 +14,7 @@ async function renderFilms(filter) {
 
   allFilms = filmData;
 
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  await new Promise(resolve => setTimeout(resolve, 500));
   filmListEl.innerHTML = filmData.map((film) => filmHTML(film)).join("");
 }
  
@@ -54,7 +54,7 @@ async function onSearchChange(event) {
     film.title.toLowerCase().includes(title)
   );
 
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  await new Promise(resolve => setTimeout(resolve, 500));
   filmListEl.innerHTML = filteredFilms
     .map((film) => filmHTML(film))
     .join("");
