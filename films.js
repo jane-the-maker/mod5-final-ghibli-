@@ -6,15 +6,21 @@ let allFilms = []
 const filmListEl = document.querySelector(".films__list");
 
 async function renderFilms(filter) {
+  
+  filmListEl.innerHTML = "<p>Loading films...</p>";
+
   const film = await fetch("https://ghibliapi.dev/films")
   const filmData = await film.json();
 
   allFilms = filmData;
 
-  filmListEl.innerHTML = filmData.map((film) => filmHTML(film));
+  await new Promise(resolve => setTimeout(resolve, 2000));
+  filmListEl.innerHTML = filmData.map((film) => filmHTML(film)).join("");
 }
  
 renderFilms()
+
+
 
 function filmHTML(film) {
   return `
@@ -38,6 +44,8 @@ function filmHTML(film) {
 
 
 async function onSearchChange(event) {
+  filmListEl.innerHTML = "<p>Loading films...</p>";
+
   const title = event.target.value.toLowerCase();
   const response = await fetch("https://ghibliapi.dev/films");
   const filmData = await response.json();
@@ -46,6 +54,7 @@ async function onSearchChange(event) {
     film.title.toLowerCase().includes(title)
   );
 
+  await new Promise(resolve => setTimeout(resolve, 2000));
   filmListEl.innerHTML = filteredFilms
     .map((film) => filmHTML(film))
     .join("");
@@ -63,13 +72,13 @@ function sortFilms() {
     films.sort((a, b) => (a.release_date - b.release_date));
   }
   else if (filter === 'DATE_DESCENDING') {
-    films.sort((b, a) => (b.release_date - a.release_date));
+    films.sort((a, b) => (b.release_date - a.release_date));
   }
   else if (filter === 'RATING_ASCENDING') {
     films.sort((a, b) => (a.rt_score - b.rt_score));
   }
   else if (filter === 'RATING_DESCENDING') {
-    films.sort ((b, a) => (b.rt_score - a.rt_score));
+    films.sort ((a, b) => (b.rt_score - a.rt_score));
   }
 
   filmListEl.innerHTML = films
