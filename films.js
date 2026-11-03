@@ -1,4 +1,8 @@
 let allFilms = []
+let searchResult = []
+let currentFilms = []
+
+
 const filmListEl = document.querySelector(".films__list");
 
 async function renderFilms(filter) {
@@ -9,6 +13,7 @@ async function renderFilms(filter) {
   const filmData = await film.json();
 
   allFilms = filmData;
+  currentFilms = filmData;
 
   await new Promise(resolve => setTimeout(resolve, 500));
   filmListEl.innerHTML = filmData.map((film) => filmHTML(film)).join("");
@@ -37,32 +42,30 @@ function filmHTML(film) {
 }
 
 
-
-
 async function onSearchChange(event) {
   filmListEl.innerHTML = "<p>Loading films...</p>";
 
   const title = event.target.value.toLowerCase();
-  const response = await fetch("https://ghibliapi.dev/films");
+  const response = await fetch(`https://ghibliapi.dev/films?title=${title}`);
   const filmData = await response.json();
 
-  const filteredFilms = filmData.filter((film) =>
+  currentFilms = filmData.filter((film) =>
     film.title.toLowerCase().includes(title)
   );
 
   await new Promise(resolve => setTimeout(resolve, 500));
-  filmListEl.innerHTML = filteredFilms
-    .map((film) => filmHTML(film))
-    .join("");
+  filmListEl.innerHTML = currentFilms.map((film) => filmHTML(film)).join("");  
+
 }
 
-function showSearchResult(title) {
-  console.log(title)  
-}
+
+// function showSearchResult(title) {
+//   console.log(title)  
+// }
 
 function sortFilms() {
   const filter = document.querySelector("#filter").value
-  const films = [...allFilms];
+  const films = [...currentFilms];
 
   if (filter === 'DATE_ASCENDING') {
     films.sort((a, b) => (a.release_date - b.release_date));
@@ -82,8 +85,12 @@ function sortFilms() {
   .join("");
 }
 
+function sortSearchResult() {
 
+}
+// function sortSearchResult {
 
+// }
 
 //search by title
 
@@ -113,3 +120,4 @@ function sortFilms() {
 //     </div>
 //     </div>`
 // }
+
