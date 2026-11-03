@@ -16,20 +16,20 @@
           <img src="assets/Studio-Ghibli-Logo-Secondary.webp" alt="" class="nav__logo">
           <ul class="nav__links">
             <li class="nav__link">
-              <a href="#" class="nav__link">Home</a>
+              <a href="#" class="nav__link no-cursor">Home</a>
             </li>
             <li class="nav__link">
-              <a href="#" class="nav__link">Contact</a>
+              <a href="#" class="nav__link no-cursor">Contact</a>
             </li>
-            <li class="nav__link">
+            <!-- <li class="nav__link">
               <a href="#" class="nav__link nav__link--primary">Films</a>
-            </li>
+            </li> -->
           </ul>
         </div>
         <div class="search__wrapper">
           <h1 class="search__title">Check out our films!</h1>
           <div class="film__search--container">
-            <input id="search-form" type="text" class="film__search--bar" placeholder="  What are you looking for?" onchange="onSearchChange(event)">
+            <input id="search-form" type="text" class="film__search--bar" placeholder="What are you looking for?" onchange="onSearchChange(event)">
           </div>
         </div>
       </div> 
@@ -61,7 +61,6 @@
                     <p>Released:<br></p>
                     <p>Runtime:<br></p>
                     <p>Rotten Tomatoes:</p><br>
-                    <!-- <p>Synopsis: ${film.description}</p> -->
                   </div>
               </div>
             </div>
@@ -69,7 +68,8 @@
         </div>  
       </div>
   </section>
-  
+  <section id="footer">
+  </section>
 </body>
 <script src="films.js"></script>
 </html>

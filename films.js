@@ -1,7 +1,3 @@
-// https://ghibliapi.dev/films
-
-
-// const searchForm = document.querySelector('#search-form')
 let allFilms = []
 const filmListEl = document.querySelector(".films__list");
 
@@ -40,7 +36,7 @@ function filmHTML(film) {
   </div>`
 }
 
-// <p>Synopsis: ${film.description}</p>
+
 
 
 async function onSearchChange(event) {
