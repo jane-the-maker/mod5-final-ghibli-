@@ -104,11 +104,13 @@ ul {
 .film__search--container {
   display: flex;
   flex-direction: column;
-  max-width: 400px;
+  width: 320px;
+  /* max-width: 400px; */
 }
 
 .film__search--bar {
   width: 100%;
+  max-width: 400px;
   border-radius: 16px;
   background-color: #D6FCFF;
   padding: 8px;
