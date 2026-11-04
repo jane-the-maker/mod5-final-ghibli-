@@ -104,7 +104,7 @@ ul {
 .film__search--container {
   display: flex;
   flex-direction: column;
-  width: 400px;
+  max-width: 400px;
 }
 
 .film__search--bar {
@@ -234,6 +234,12 @@ ul {
 
   .search__wrapper {
     margin-top: 48px;
+    padding: 0 16px 24px;
+  }
+
+  .nav__banner {
+    height: 100%;
+    object-fit: cover;
   }
 
   h1 {
