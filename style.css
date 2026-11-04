@@ -275,4 +275,7 @@ ul {
   .film__search--bar {
     font-size: 12px;
   }
+
+  .nav__links {
+    display: none;
 }
