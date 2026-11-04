@@ -255,4 +255,8 @@ ul {
     width: 100%;
     margin: 24px;
   }
+
+  .nav__links {
+    display: none;
+  }
 }
